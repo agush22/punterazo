@@ -1,0 +1,49 @@
+<h1>Listing fields</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lat</th>
+    <th>Long</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Street</th>
+    <th>Neighbourhood</th>
+    <th>Field type</th>
+    <th>Phone</th>
+    <th>Link</th>
+    <th>Mail</th>
+    <th>Usage</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fields.each do |field| %>
+  <tr>
+    <td><%= field.name %></td>
+    <td><%= field.lat %></td>
+    <td><%= field.long %></td>
+    <td><%= field.address %></td>
+    <td><%= field.city %></td>
+    <td><%= field.state %></td>
+    <td><%= field.country %></td>
+    <td><%= field.street %></td>
+    <td><%= field.neighbourhood %></td>
+    <td><%= field.field_type_id %></td>
+    <td><%= field.phone %></td>
+    <td><%= field.link %></td>
+    <td><%= field.mail %></td>
+    <td><%= field.usage_id %></td>
+    <td><%= link_to 'Show', field %></td>
+    <td><%= link_to 'Edit', edit_field_path(field) %></td>
+    <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field', new_field_path %>

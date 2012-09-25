@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @field.name %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @field.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @field.long %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @field.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @field.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @field.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @field.country %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @field.street %>
+</p>
+
+<p>
+  <b>Neighbourhood:</b>
+  <%= @field.neighbourhood %>
+</p>
+
+<p>
+  <b>Field type:</b>
+  <%= @field.field_type_id %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @field.phone %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @field.link %>
+</p>
+
+<p>
+  <b>Mail:</b>
+  <%= @field.mail %>
+</p>
+
+<p>
+  <b>Usage:</b>
+  <%= @field.usage_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_field_path(@field) %> |
+<%= link_to 'Back', fields_path %>
