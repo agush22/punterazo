@@ -10,7 +10,7 @@ class CreateFields < ActiveRecord::Migration
       t.string :country
       t.string :street
       t.string :neighbourhood
-      t.references :field_type_id
+      t.references :field_type
       t.string :phone
       t.string :link
       t.string :mail
@@ -18,6 +18,6 @@ class CreateFields < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :fields, :field_type_id_id
+    add_index :fields, :field_type_id
   end
 end

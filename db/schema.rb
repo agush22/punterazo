@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(:version => 20120924235534) do
     t.string   "country"
     t.string   "street"
     t.string   "neighbourhood"
-    t.integer  "field_type_id_id"
+    t.integer  "field_type_id"
     t.string   "phone"
     t.string   "link"
     t.string   "mail"
     t.integer  "usage_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  add_index "fields", ["field_type_id_id"], :name => "index_fields_on_field_type_id_id"
+  add_index "fields", ["field_type_id"], :name => "index_fields_on_field_type_id"
 
 end
