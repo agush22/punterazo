@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 group :test, :development do
   gem 'sqlite3'
   gem 'debugger'
+  gem 'rspec-rails'
 end
 
 
@@ -25,7 +26,6 @@ end
 gem 'jquery-rails'
 
 group :test do
-  gem 'rspec'
   gem 'steak'
   gem 'capybara'
   gem 'database_cleaner'

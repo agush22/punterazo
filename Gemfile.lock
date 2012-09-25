@@ -165,7 +165,7 @@ DEPENDENCIES
   debugger
   jquery-rails
   rails (= 3.2.8)
-  rspec
+  rspec-rails
   sass-rails (~> 3.2.3)
   shoulda-matchers
   sqlite3
