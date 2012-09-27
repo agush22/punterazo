@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <ul class="hmenu">
+    <%= render 'devise/user_links' %>
+  </ul>
+  <%= yield %>
 
 </body>
 </html>
