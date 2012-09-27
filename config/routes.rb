@@ -1,4 +1,8 @@
 Hazmecancha::Application.routes.draw do
+  root :to => 'fields#index'
+
+  devise_for :users
+
   resources :fields
 
   resources :field_types
