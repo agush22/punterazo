@@ -28,6 +28,7 @@ gem 'jquery-rails'
 group :test do
   gem 'steak'
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
 end
