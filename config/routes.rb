@@ -3,7 +3,18 @@ Hazmecancha::Application.routes.draw do
 
   devise_for :users
 
-  resources :fields
+  resources :fields do
+    member do
+      put 'accept'
+      put 'reject'
+      put 'reset'
+    end
+    collection do
+      get 'accepted'
+      get 'rejected'
+      get 'pending'
+    end
+  end
 
   resources :field_types
 

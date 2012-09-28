@@ -16,6 +16,7 @@
     <th>Link</th>
     <th>Mail</th>
     <th>Usage</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -37,9 +38,19 @@
     <td><%= field.link %></td>
     <td><%= field.mail %></td>
     <td><%= field.usage_id %></td>
+    <% if can? :manage, field %>
+      <td><%= field.status %></td>
+    <% end %>
     <td><%= link_to 'Show', field %></td>
-    <td><%= link_to 'Edit', edit_field_path(field) %></td>
-    <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if can? :update, field%>
+      <td><%= link_to 'Edit', edit_field_path(field) %></td>
+    <% end %>
+    <% if can? :manage, field %>
+      <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= button_to 'Accept', accept_field_path(field), :method => :put if field.status == 'pending'%></td>
+      <td><%= button_to 'Reject', reject_field_path(field), :method => :put if field.status == 'pending'%></td>
+      <td><%= button_to 'Reset', reset_field_path(field), :method => :put if field.status != 'pending'%></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
