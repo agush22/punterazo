@@ -26,6 +26,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'state_machine'
+gem 'cancan'
 
 group :test do
   gem 'steak'

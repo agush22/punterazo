@@ -1,4 +1,6 @@
 class FieldsController < ApplicationController
+load_and_authorize_resource
+
   # GET /fields
   # GET /fields.json
   def index
@@ -13,8 +15,6 @@ class FieldsController < ApplicationController
   # GET /fields/1
   # GET /fields/1.json
   def show
-    @field = Field.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @field }
@@ -24,8 +24,6 @@ class FieldsController < ApplicationController
   # GET /fields/new
   # GET /fields/new.json
   def new
-    @field = Field.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @field }
@@ -34,14 +32,11 @@ class FieldsController < ApplicationController
 
   # GET /fields/1/edit
   def edit
-    @field = Field.find(params[:id])
   end
 
   # POST /fields
   # POST /fields.json
   def create
-    @field = Field.new(params[:field])
-
     respond_to do |format|
       if @field.save
         format.html { redirect_to @field, notice: 'Field was successfully created.' }
@@ -56,8 +51,6 @@ class FieldsController < ApplicationController
   # PUT /fields/1
   # PUT /fields/1.json
   def update
-    @field = Field.find(params[:id])
-
     respond_to do |format|
       if @field.update_attributes(params[:field])
         format.html { redirect_to @field, notice: 'Field was successfully updated.' }
@@ -72,12 +65,37 @@ class FieldsController < ApplicationController
   # DELETE /fields/1
   # DELETE /fields/1.json
   def destroy
-    @field = Field.find(params[:id])
     @field.destroy
 
     respond_to do |format|
       format.html { redirect_to fields_url }
       format.json { head :no_content }
+    end
+  end
+
+  def pending
+    @fields = Field.pending
+    respond_to do |format|
+      format.html { render :action => 'index'}
+    end
+  end
+
+  def accept
+    @field.accept
+    respond_to do |format|
+      format.html { render :action => 'show'}
+    end
+  end
+  def reject
+    @field.reject
+    respond_to do |format|
+      format.html { render :action => 'show'}
+    end
+  end
+  def reset
+    @field.reset
+    respond_to do |format|
+      format.html { render :action => 'show'}
     end
   end
 end
