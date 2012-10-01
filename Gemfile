@@ -29,11 +29,12 @@ gem 'state_machine'
 gem 'cancan'
 
 group :test do
-  gem 'steak'
   gem 'capybara'
+  gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'guard-rspec'
 end
 
 # To use ActiveModel has_secure_password
