@@ -79,6 +79,18 @@ load_and_authorize_resource
       format.html { render :action => 'index'}
     end
   end
+  def accepted
+    @Fields = Field.accepted
+    respond_to do |format|
+      format.html { render :action => 'index'}
+    end
+  end
+  def rejected
+    @Fields = Field.rejected
+    respond_to do |format|
+      format.html {render :action => 'index'}
+    end
+  end
 
   def accept
     @field.accept
