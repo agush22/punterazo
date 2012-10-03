@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'state_machine'
 gem 'cancan'
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :test do
   gem 'capybara'
