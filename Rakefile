@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Hazmecancha::Application.load_tasks
+Punterazo::Application.load_tasks

@@ -1,4 +1,4 @@
-Hazmecancha::Application.routes.draw do
+Punterazo::Application.routes.draw do
   root :to => 'fields#index'
 
   devise_for :users
