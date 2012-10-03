@@ -1,7 +1,9 @@
 class Field < ActiveRecord::Base
   belongs_to :field_type
 
-  attr_accessible :address, :city, :country, :lat, :link, :long, :mail, :name, :neighbourhood, :phone, :state, :street, :usage_id, :field_type_id
+  attr_accessible :address, :city, :country, :lat, :link, :long, :mail, :name, :neighbourhood, :phone, :state, :street, :usage, :field_type_id
+
+  USAGE = %w{Ligas Renta}
 
   scope :accepted, where(:status => :accepted)
   scope :rejected, where(:status => :rejected)

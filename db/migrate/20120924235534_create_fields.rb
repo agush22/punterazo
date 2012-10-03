@@ -14,7 +14,7 @@ class CreateFields < ActiveRecord::Migration
       t.string :phone
       t.string :link
       t.string :mail
-      t.integer :usage_id
+      t.string :usage
 
       t.timestamps
     end

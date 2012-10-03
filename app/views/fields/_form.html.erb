@@ -64,8 +64,8 @@
     <%= f.text_field :mail %>
   </div>
   <div class="field">
-    <%= f.label :usage_id %><br />
-    <%= f.number_field :usage_id %>
+    <%= f.label :usage %><br />
+    <%= f.select :usage, Field::USAGE, { :include_blank => true} %>
   </div>
   <div class="actions">
     <%= f.submit %>
