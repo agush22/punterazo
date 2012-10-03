@@ -49,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :field_type_id %><br />
-    <%= f.text_field :field_type_id %>
+    <%= f.collection_select  :field_type_id, FieldType.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :phone %><br />
