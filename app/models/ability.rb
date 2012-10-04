@@ -29,11 +29,11 @@ class Ability
       can :manage, :all
     elsif user
       can :read, :all
-      can :create, Field
+      can [:create, :homepage], Field
       can :update, Field, :status => [:pending, :rejected], :user_id => user.id
     else
       can :read, :all
-      can :create, Field
+      can [:create, :homepage], Field
     end
   end
 end

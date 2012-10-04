@@ -6,6 +6,8 @@ describe User do
     @admin = FactoryGirl.create(:admin)
   end
 
+  it { should have_many(:fields)}
+
   it "should return true if user is admin" do
     @admin.admin?.should == true
   end

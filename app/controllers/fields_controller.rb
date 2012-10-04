@@ -12,6 +12,15 @@ load_and_authorize_resource
     end
   end
 
+  def homepage
+    @fields = Field.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @fields }
+    end
+  end
+
   # GET /fields/1
   # GET /fields/1.json
   def show
@@ -37,6 +46,9 @@ load_and_authorize_resource
   # POST /fields
   # POST /fields.json
   def create
+    if current_user
+      @field.user = current_user
+    end
     respond_to do |format|
       if @field.save
         format.html { redirect_to @field, notice: 'Field was successfully created.' }

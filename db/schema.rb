@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927191338) do
+ActiveRecord::Schema.define(:version => 20121003200740) do
 
   create_table "field_types", :force => true do |t|
     t.string   "name"
@@ -33,13 +33,15 @@ ActiveRecord::Schema.define(:version => 20120927191338) do
     t.string   "phone"
     t.string   "link"
     t.string   "mail"
-    t.integer  "usage_id"
+    t.string   "usage"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "status"
+    t.integer  "user_id"
   end
 
   add_index "fields", ["field_type_id"], :name => "index_fields_on_field_type_id"
+  add_index "fields", ["user_id"], :name => "index_fields_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

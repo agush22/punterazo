@@ -10,9 +10,16 @@ Punterazo::Application.routes.draw do
       put 'reset'
     end
     collection do
+      get 'homepage'
       get 'accepted'
       get 'rejected'
       get 'pending'
+    end
+  end
+
+  resources :users do
+    member do
+      get 'fields'
     end
   end
 

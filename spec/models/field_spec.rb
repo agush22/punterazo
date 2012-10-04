@@ -6,6 +6,7 @@ describe Field do
     end
 
     it { should belong_to(:field_type) }
+    it { should belong_to(:user)}
 
     it "should start with pending status" do
       @field.status.should == "pending"

@@ -1,0 +1,10 @@
+<h1>Las ultimas canchas:</h1>
+<section class="fields">
+  <% @fields.each do |field| %>
+  <article>
+    <%= field.name %>
+    <%= field.neighbourhood %>
+    <%= field.field_type.name %>
+  </article>
+  <% end %>>
+</section>

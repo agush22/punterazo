@@ -1,5 +1,6 @@
 class Field < ActiveRecord::Base
   belongs_to :field_type
+  belongs_to :user
 
   attr_accessible :address, :city, :country, :lat, :link, :long, :mail, :name, :neighbourhood, :phone, :state, :street, :usage, :field_type_id
 
