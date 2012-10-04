@@ -9,7 +9,14 @@
 <body>
   <ul class="hmenu">
     <%= render 'devise/user_links' %>
+    <%= link_to "Mis Canchas", fields_user_path(current_user) if current_user%>
   </ul>
+  <% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+  <% end %>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
   <%= yield %>
 
 </body>
