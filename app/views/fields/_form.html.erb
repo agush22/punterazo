@@ -67,6 +67,11 @@
     <%= f.label :usage %><br />
     <%= f.select :usage, Field::USAGE, { :include_blank => true} %>
   </div>
+  <% unless current_user %>
+  <div>
+    <%= recaptcha_tags %>
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

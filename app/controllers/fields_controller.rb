@@ -48,15 +48,19 @@ load_and_authorize_resource
   def create
     if current_user
       @field.user = current_user
-    end
-    respond_to do |format|
-      if @field.save
-        format.html { redirect_to @field, notice: 'Field was successfully created.' }
-        format.json { render json: @field, status: :created, location: @field }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @field.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @field.save
+          format.html { redirect_to @field, notice: 'Field was successfully created.' }
+          format.json { render json: @field, status: :created, location: @field }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @field.errors, status: :unprocessable_entity }
+        end
       end
+    elsif verify_recaptcha(:model => @field, :message => "Escribe las letras de la imagen de nuevo") && @field.save
+      redirect_to @field, notice: 'Field was successfully created.'
+    else
+      render action: "new"
     end
   end
 
