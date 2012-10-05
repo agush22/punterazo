@@ -1,5 +1,5 @@
 Punterazo::Application.routes.draw do
-  root :to => 'fields#index'
+  root :to => 'fields#homepage'
 
   devise_for :users
 

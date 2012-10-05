@@ -1,10 +1,22 @@
 <h1>Las ultimas canchas:</h1>
 <section class="fields">
+<table class="table">
+  <th><%= t :name %></th>
+  <th><%= t :neighbourhood %></th>
+  <th><%= t :field_type %></th>
+  <th></th>
   <% @fields.each do |field| %>
-  <article>
-    <%= field.name %>
-    <%= field.neighbourhood %>
-    <%= field.field_type.name %>
-  </article>
-  <% end %>>
+    <tr>
+    <td><%= field.name %></td>
+    <td><%= field.neighbourhood %></td>
+    <td><%= field.field_type.name if field.field_type %></td>
+    <td><%= link_to (t :show), field_path(field), class: "btn" %></td>
+    </tr>
+  <% end %>
+</table>
 </section>
+<section>
+<h1>Registra una nueva cancha:</h1>
+<%= render 'fields/form'%>
+</section>
+
