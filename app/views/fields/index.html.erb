@@ -16,7 +16,9 @@
     <th>Link</th>
     <th>Mail</th>
     <th>Usage</th>
+    <% if can? :manage, Field %>
     <th>Status</th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>
@@ -41,15 +43,15 @@
     <% if can? :manage, field %>
       <td><%= field.status %></td>
     <% end %>
-    <td><%= link_to 'Show', field %></td>
+    <td><%= link_to 'Show', field , class: "btn"%></td>
     <% if can? :update, field%>
-      <td><%= link_to 'Edit', edit_field_path(field) %></td>
+      <td><%= link_to 'Edit', edit_field_path(field), class: "btn" %></td>
     <% end %>
     <% if can? :manage, field %>
-      <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= button_to 'Accept', accept_field_path(field), :method => :put if field.status == 'pending'%></td>
-      <td><%= button_to 'Reject', reject_field_path(field), :method => :put if field.status == 'pending'%></td>
-      <td><%= button_to 'Reset', reset_field_path(field), :method => :put if field.status != 'pending'%></td>
+      <td><%= link_to 'Destroy', field, method: :delete, class: "btn", data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Accept', accept_field_path(field), :method => :put, class: "btn btn-success" if field.status == 'pending'%></td>
+      <td><%= link_to 'Reject', reject_field_path(field), :method => :put, class: "btn btn-danger"if field.status == 'pending'%></td>
+      <td><%= link_to 'Reset', reset_field_path(field), :method => :put, class: "btn btn-inverse" if field.status != 'pending'%></td>
     <% end %>
   </tr>
 <% end %>

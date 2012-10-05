@@ -1,3 +1,4 @@
+<% @field ||= Field.new%>
 <%= form_for(@field) do |f| %>
   <% if @field.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +11,8 @@
       </ul>
     </div>
   <% end %>
-
+<section class="row-fluid">
+<div class="span6">
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -39,6 +41,8 @@
     <%= f.label :country %><br />
     <%= f.text_field :country %>
   </div>
+</div>
+<div class="span6">
   <div class="field">
     <%= f.label :street %><br />
     <%= f.text_field :street %>
@@ -67,12 +71,16 @@
     <%= f.label :usage %><br />
     <%= f.select :usage, Field::USAGE, { :include_blank => true} %>
   </div>
+</div>
+<div class="fluid-row">
   <% unless current_user %>
-  <div>
-    <%= recaptcha_tags %>
-  </div>
+    <div class="span6">
+      <%= recaptcha_tags %>
+    </div>
   <% end %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions span6">
+    <%= f.submit class: "btn-large btn-primary"%>
   </div>
+</div>
 <% end %>
+</section>
