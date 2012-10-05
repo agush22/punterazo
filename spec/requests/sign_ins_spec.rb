@@ -8,6 +8,7 @@ describe "SignIns" do
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
       click_on "Sign in"
+      page.should have_content('Logout')
     end
   end
   describe "Admin Sign In" do
@@ -17,8 +18,7 @@ describe "SignIns" do
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
       click_on "Sign in"
-      page.should have_content(user.email)
-      page.should have_content('Listing fields')
+      page.should have_content('Logout')
     end
   end
 end
