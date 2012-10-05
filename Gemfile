@@ -31,6 +31,7 @@ gem 'devise'
 gem 'state_machine'
 gem 'cancan'
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'bootstrap-sass'
 
 group :test do
   gem 'capybara'
