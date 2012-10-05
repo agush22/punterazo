@@ -7,6 +7,7 @@ FactoryGirl.define do
     state "Estado x"
     country "Pais x"
     street "Calle x"
+    field_type
   end
 
   factory :field_type do
