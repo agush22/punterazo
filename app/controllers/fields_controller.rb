@@ -92,38 +92,38 @@ load_and_authorize_resource
   def pending
     @fields = Field.pending
     respond_to do |format|
-      format.html { render :action => 'index'}
+      format.html { render :action => 'index' }
     end
   end
   def accepted
-    @Fields = Field.accepted
+    @fields = Field.accepted
     respond_to do |format|
-      format.html { render :action => 'index'}
+      format.html { render :action => 'index' }
     end
   end
   def rejected
-    @Fields = Field.rejected
+    @fields = Field.rejected
     respond_to do |format|
-      format.html {render :action => 'index'}
+      format.html { render :action => 'index' }
     end
   end
 
   def accept
     @field.accept
     respond_to do |format|
-      format.html { render :action => 'show'}
+      format.html { redirect_to :back }
     end
   end
   def reject
     @field.reject
     respond_to do |format|
-      format.html { render :action => 'show'}
+      format.html { redirect_to :back }
     end
   end
   def reset
     @field.reset
     respond_to do |format|
-      format.html { render :action => 'show'}
+      format.html { redirect_to :back }
     end
   end
 end

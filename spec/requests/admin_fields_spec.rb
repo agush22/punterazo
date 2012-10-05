@@ -14,7 +14,6 @@ describe "Fields" do
     it "should accept field in pending fields" do
       visit pending_fields_path
       click_on 'Accept'
-      click_on 'Back'
       visit accepted_fields_path
       page.should have_content(@field.name)
     end
