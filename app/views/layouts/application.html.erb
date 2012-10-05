@@ -7,10 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <ul class="hmenu">
-    <%= render 'devise/user_links' %>
-    <%= link_to "Mis Canchas", fields_user_path(current_user) if current_user%>
-  </ul>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">Punterazo</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><%= link_to "Mis Canchas", fields_user_path(current_user) if current_user%></li>
+            <%= render 'shared/admin_links' if current_user.try(:admin?)%>
+            <%= render 'devise/user_links' %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="container">
   <% if flash[:error] %>
     <div class="error"><%= flash[:error] %></div>
   <% end %>
@@ -18,6 +34,6 @@
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
   <%= yield %>
-
+  </div>
 </body>
 </html>
