@@ -3,7 +3,10 @@
 <head>
   <title>Punterazo</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false">
+  </script>
   <%= javascript_include_tag "application" %>
+  <%= yield(:javascript) %>
   <%= csrf_meta_tags %>
 </head>
 <body>
