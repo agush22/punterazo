@@ -13,7 +13,7 @@ load_and_authorize_resource
   end
 
   def homepage
-    @fields = Field.all
+    @fields = Field.accepted
 
     respond_to do |format|
       format.html
