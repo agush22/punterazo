@@ -16,10 +16,14 @@
 </table>
 </section>
 <section>
+  <div id="map_canvas"></div>
+</section>
+<section>
   <%= link_to "Registra una nueva cancha", new_field_path, class: "btn-large btn-success wide" %>
 </section>
 <% content_for :javascript do%>
   <script id="map_info_json" type="text/json">
     <%=raw @fields.map_info_to_json %>
   </script>
+  <%=javascript_include_tag 'homepage_map'%>
 <% end %>
