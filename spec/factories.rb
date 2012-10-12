@@ -1,12 +1,14 @@
 FactoryGirl.define do
 
   factory :field do
-    name "Real Canchas"
+    sequence(:name) {|n| "Real Canchas #{n}" }
     address "Direccion x"
     city "Ciudad x"
     state "Estado x"
     country "Pais x"
     street "Calle x"
+    lat "97.7"
+    long "90.9"
     field_type
   end
 

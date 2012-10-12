@@ -16,7 +16,10 @@
 </table>
 </section>
 <section>
-<h1>Registra una nueva cancha:</h1>
-<%= render 'fields/form'%>
+  <%= link_to "Registra una nueva cancha", new_field_path, class: "btn-large btn-success wide" %>
 </section>
-
+<% content_for :javascript do%>
+  <script id="map_info_json" type="text/json">
+    <%=raw @fields.map_info_to_json %>
+  </script>
+<% end %>

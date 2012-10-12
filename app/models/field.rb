@@ -26,6 +26,9 @@ class Field < ActiveRecord::Base
     event :reset do
       transition any => :pending
     end
+  end
 
+  def self.map_info_to_json
+    self.all.to_json(:only => [:id, :name, :lat, :long])
   end
 end
