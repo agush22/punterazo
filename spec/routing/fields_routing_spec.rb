@@ -31,6 +31,18 @@ describe FieldsController do
       delete("/fields/1").should route_to("fields#destroy", :id => "1")
     end
 
+    it "routes to #accept" do
+      put("/fields/1/accept").should route_to("fields#accept", :id => "1")
+    end
+
+    it "routes to #reject" do
+      put("/fields/1/reject").should route_to("fields#reject", :id => "1")
+    end
+
+    it "routes to #reset" do
+      put("/fields/1/reset").should route_to("fields#reset", :id => "1")
+    end
+
     it "routes to #pending" do
       get("/fields/pending").should route_to("fields#pending")
     end
@@ -41,6 +53,10 @@ describe FieldsController do
 
     it "routes to #rejected" do
       get("/fields/rejected").should route_to("fields#rejected")
+    end
+
+    it "routes to #homepage" do
+      get("/fields/homepage").should route_to("fields#homepage")
     end
 
   end
