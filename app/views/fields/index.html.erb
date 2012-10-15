@@ -1,16 +1,7 @@
-<h1>Listing fields</h1>
-
 <table>
   <tr>
     <th>Name</th>
-    <th>Lat</th>
-    <th>Long</th>
     <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Country</th>
-    <th>Street</th>
-    <th>Neighbourhood</th>
     <th>Field type</th>
     <th>Phone</th>
     <th>Link</th>
@@ -27,14 +18,7 @@
 <% @fields.each do |field| %>
   <tr>
     <td><%= field.name %></td>
-    <td><%= field.lat %></td>
-    <td><%= field.long %></td>
     <td><%= field.address %></td>
-    <td><%= field.city %></td>
-    <td><%= field.state %></td>
-    <td><%= field.country %></td>
-    <td><%= field.street %></td>
-    <td><%= field.neighbourhood %></td>
     <td><%= field.field_type.name if field.field_type %></td>
     <td><%= field.phone %></td>
     <td><%= field.link %></td>
