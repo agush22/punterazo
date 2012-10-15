@@ -1,19 +1,21 @@
 <h1>Las ultimas canchas:</h1>
 <section class="fields">
-<table class="table">
-  <th><%= t :name %></th>
-  <th><%= t :neighbourhood %></th>
-  <th><%= t :field_type %></th>
-  <th></th>
-  <% @fields.each do |field| %>
+  <table class="table">
     <tr>
-    <td><%= field.name %></td>
-    <td><%= field.neighbourhood %></td>
-    <td><%= field.field_type.name if field.field_type %></td>
-    <td><%= link_to (t :show), field_path(field), class: "btn" %></td>
+      <th><%= t :name %></th>
+      <th><%= t :neighbourhood %></th>
+      <th><%= t :field_type %></th>
+      <th></th>
+    </tr>
+    <% @fields.each do |field| %>
+      <tr>
+      <td><%= field.name %></td>
+      <td><%= field.neighbourhood %></td>
+      <td><%= field.field_type.name if field.field_type %></td>
+      <td><%= link_to (t :show), field_path(field), class: "btn" %></td>
     </tr>
   <% end %>
-</table>
+  </table>
 </section>
 <section>
   <div id="map_canvas"></div>

@@ -52,3 +52,14 @@ $(document).ready(function() {
     gmaps_init();
   };
 });
+
+function addInfoWindow(){
+  for (var i = 0; i < field_locations.length; i++) {
+    var infowindow = new google.maps.InfoWindow({ content: map_info[i].name,
+                                                size: new google.maps.Size(50,50)
+    });
+    google.maps.event.addListener(markers[i], 'click', function() {
+      infowindow.open(map,markers[i]);
+    });
+  }
+}
