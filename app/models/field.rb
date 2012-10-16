@@ -3,7 +3,9 @@ class Field < ActiveRecord::Base
   belongs_to :user
 
   attr_accessible :address, :city, :country, :lat, :link, :long, :mail, :name, :neighbourhood, :phone, :state, :street, :usage, :field_type_id
-
+  validates :name, :presence => true
+  validates :lat, :long, :numericality => true, :allow_nil => true
+  validates :phone, :numericality => true, :allow_blank => true
   USAGE = %w{Ligas Renta}
 
   scope :accepted, where(:status => :accepted)

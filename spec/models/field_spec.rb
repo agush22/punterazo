@@ -32,4 +32,11 @@ describe Field do
       @expected_json = "[{\"id\":#{@field.id},\"lat\":#{@field.lat},\"long\":#{@field.long},\"name\":\"#{@field.name}\"},{\"id\":#{@field2.id},\"lat\":#{@field2.lat},\"long\":#{@field2.long},\"name\":\"#{@field2.name}\"}]"
       Field.map_info_to_json.should == @expected_json
     end
+
+    it "should require a name" do
+       FactoryGirl.build(:field, :name => "").should_not be_valid
+    end
+    it "lat and long should be numbers" do
+       FactoryGirl.build(:field, :lat => "sa", :long => "sda").should_not be_valid
+    end
 end
