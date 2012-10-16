@@ -90,6 +90,7 @@ function geocode_lookup( type, value, update ) {
   request[type] = value;
 
   geocoder.geocode(request, function(results, status) {
+    $('#gmaps-error').hide();
     $('#gmaps-error').html('');
     if (status == google.maps.GeocoderStatus.OK) {
       // Google geocoding has succeeded!
@@ -100,6 +101,7 @@ function geocode_lookup( type, value, update ) {
                   if( update ) { update_map( results[0].geometry ) }
       } else {
         // Geocoder status ok but no results!?
+        $('#gmaps-error').show();
         $('#gmaps-error').html("Sorry, something went wrong. Try again!");
       }
     } else {
@@ -109,10 +111,12 @@ function geocode_lookup( type, value, update ) {
 
       if( type == 'address' ) {
         // User has typed in an address which we can't geocode to a location
+        $('#gmaps-error').show();
         $('#gmaps-error').html("Sorry! We couldn't find " + value + ". Try a different search term, or click the map." );
       } else {
         // User has clicked or dragged marker to somewhere that Google can't do a
         // reverse lookup for. In this case we display a warning.
+        $('#gmaps-error').show();
         $('#gmaps-error').html("Woah... that's pretty remote! You're going to have to manually enter a place name." );
         update_ui('', value, [])
       }
