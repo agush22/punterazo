@@ -35,13 +35,11 @@ es:
       confirmed: 'Tu cuenta fue confirmada exitosamente, has sido ingresado al sistema.'
     registrations:
       signed_up: '¡Bienvenido! Has ingresado al sistema exitosamente.'
-      inactive_signed_up: 'Te has registrado exitosamente; sin embargo, no te hemos podido ingresar debido a que tu cuenta está %{reason}.'
       updated: 'Actualizaste tu cuenta exitosamente.'
       destroyed: '¡Hasta luego! Tu cuenta fue cancelada con éxito, esperamos verte de nuevo pronto. Gracias.'
-      reasons:
-        inactive: 'inactiva'
-        unconfirmed: 'sin confirmar'
-        locked: 'bloqueada'
+      signed_up_but_inactive: 'Te has registrado exitosamente; sin embargo, no te hemos podido ingresar debido a que tu cuenta está %{reason}.'
+      signed_up_but_unconfirmed: 'sin confirmar'
+      signed_up_but_locked: 'bloqueada'
     unlocks:
       send_instructions: 'Recibirás un correo electrónico con instrucciones sobre cómo desbloquear tu cuenta en unos minutos.'
       unlocked: 'Tu cuenta fue desbloqueada con éxito, has sido ingresado al sistema.'
