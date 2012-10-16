@@ -32,6 +32,7 @@ gem 'state_machine'
 gem 'cancan'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'bootstrap-sass'
+gem 'kaminari'
 
 group :test do
   gem 'capybara'

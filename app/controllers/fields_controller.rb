@@ -4,7 +4,7 @@ load_and_authorize_resource
   # GET /fields
   # GET /fields.json
   def index
-    @fields = Field.all
+    @fields = Field.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ load_and_authorize_resource
   end
 
   def homepage
-    @fields = Field.accepted
+    @fields = Field.accepted.limit(5)
 
     respond_to do |format|
       format.html
@@ -90,19 +90,19 @@ load_and_authorize_resource
   end
 
   def pending
-    @fields = Field.pending
+    @fields = Field.pending.page(params[:page]).per(5)
     respond_to do |format|
       format.html { render :action => 'index' }
     end
   end
   def accepted
-    @fields = Field.accepted
+    @fields = Field.accepted.page(params[:page]).per(5)
     respond_to do |format|
       format.html { render :action => 'index' }
     end
   end
   def rejected
-    @fields = Field.rejected
+    @fields = Field.rejected.page(params[:page]).per(5)
     respond_to do |format|
       format.html { render :action => 'index' }
     end
