@@ -33,8 +33,7 @@ class Ability
       can :update, Field, :status => ["pending", "rejected"], :user_id => user.id
       can :fields, User, :user_id => user.id
     else
-      can :read, :all
-      can [:create, :homepage], Field
+      can [:create, :homepage, :accepted, :show], Field
     end
   end
 end

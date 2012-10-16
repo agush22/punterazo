@@ -27,9 +27,15 @@ describe "Ability" do
     end
   end
   describe "nil ability" do
+    it "Should be able to view accepted fields" do
+      @ability = Ability.new(nil)
+      @ability.should be_able_to(:accepted, @field)
+    end
+  end
+  describe "nil ability" do
     it "Should be able to view fields" do
       @ability = Ability.new(nil)
-      @ability.should be_able_to(:read, @field)
+      @ability.should be_able_to(:show, @field)
     end
   end
   describe "nil ability" do
@@ -42,6 +48,18 @@ describe "Ability" do
     it "Should not be able to edit fields" do
       @ability = Ability.new(nil)
       @ability.should_not be_able_to(:update, @field)
+    end
+  end
+  describe "nil ability" do
+    it "Should not be able to view fields index" do
+      @ability = Ability.new(nil)
+      @ability.should_not be_able_to(:index, @field)
+    end
+  end
+  describe "nil ability" do
+    it "Should not be able to view rejected fields" do
+      @ability = Ability.new(nil)
+      @ability.should_not be_able_to(:rejected, @field)
     end
   end
 
