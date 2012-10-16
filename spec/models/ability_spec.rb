@@ -26,6 +26,12 @@ describe "Ability" do
       @ability.should_not be_able_to(:update, @field)
     end
   end
+  describe "User ability" do
+    it "Should be able to view accepted fields" do
+      @ability = Ability.new(@user)
+      @ability.should be_able_to(:accepted, @field)
+    end
+  end
   describe "nil ability" do
     it "Should be able to view accepted fields" do
       @ability = Ability.new(nil)
