@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Field type</th>
+    <th>Phone</th>
+    <th>Link</th>
+    <th>Mail</th>
+    <th>Usage</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fields.each do |field| %>
+  <tr>
+    <td><%= field.name %></td>
+    <td><%= field.address %></td>
+    <td><%= field.field_type.name if field.field_type %></td>
+    <td><%= field.phone %></td>
+    <td><%= field.link %></td>
+    <td><%= field.mail %></td>
+    <td><%= field.usage %></td>
+    <td><%= field.status %></td>
+    <td><%= link_to 'Show', field , class: "btn"%></td>
+    <td><%= link_to 'Edit', edit_field_path(field), class: "btn" %></td>
+    <td><%= link_to 'Destroy', field, method: :delete, class: "btn", data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Accept', accept_field_path(field), :method => :put, class: "btn btn-success" if field.status == 'pending'%></td>
+    <td><%= link_to 'Reject', reject_field_path(field), :method => :put, class: "btn btn-danger"if field.status == 'pending'%></td>
+    <td><%= link_to 'Reset', reset_field_path(field), :method => :put, class: "btn btn-inverse" if field.status != 'pending'%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field', new_field_path %>
