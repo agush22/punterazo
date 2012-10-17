@@ -13,7 +13,7 @@ load_and_authorize_resource
   end
 
   def homepage
-    @fields = Field.accepted.limit(5)
+    @fields = Field.accepted.newest.limit(5)
 
     respond_to do |format|
       format.html

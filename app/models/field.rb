@@ -8,6 +8,7 @@ class Field < ActiveRecord::Base
   validates :phone, :numericality => true, :allow_blank => true
   USAGE = %w{Ligas Renta}
 
+  scope :newest, order("updated_at DESC")
   scope :accepted, where(:status => :accepted)
   scope :rejected, where(:status => :rejected)
   scope :pending, where(:status => :pending)
