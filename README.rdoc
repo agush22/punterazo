@@ -1,4 +1,0 @@
-== Punterazo
-
-Register soccer fields, as an admin accept or reject them.
-As a user see the listing of all approved fields and see and edit your unnaproved fields.
